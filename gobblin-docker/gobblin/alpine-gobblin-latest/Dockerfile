@@ -24,7 +24,7 @@ RUN gradle build -x findbugsMain -x test -x rat -x checkstyleMain -x javadoc -x 
     tar -xvf ./build/gobblin-distribution/distributions/*.tar.gz && \
     rm *.tar.gz
 
-FROM openjdk:8-jre-alpine
+FROM openjdk:17-ea-3-oraclelinux8
 WORKDIR /home/gobblin/
 COPY ./gobblin-docker/gobblin/alpine-gobblin-latest/entrypoint.sh ./bin/entrypoint.sh
 COPY --from=build /home/gobblin/gobblin-dist .
